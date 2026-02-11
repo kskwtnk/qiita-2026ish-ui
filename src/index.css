@@ -1,1 +1,62 @@
 @import "tailwindcss";
+
+@layer base {
+	button {
+		@apply cursor-pointer;
+	}
+}
+
+@utility gradient-border {
+	--_gradient-border-before-color: linear-gradient(
+		to var(--_gradient-border-before-direction),
+		#fff,
+		#000
+	);
+	--_gradient-border-before-direction: bottom;
+	--_gradient-border-before-width: 1px;
+
+	--_gradient-border-after-color: linear-gradient(
+		to var(--_gradient-border-after-direction),
+		#fff,
+		#000
+	);
+	--_gradient-border-after-direction: bottom;
+	--_gradient-border-after-width: 1px;
+
+	position: relative;
+	isolation: isolate;
+
+	&::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		mask-image: conic-gradient(#000 0 0), conic-gradient(#000 0 0);
+		mask-clip: padding-box, border-box;
+		mask-composite: exclude;
+		-webkit-mask-composite: destination-out;
+		background-image: linear-gradient(
+			to var(--_gradient-border-before-direction),
+			var(--_gradient-border-before-color)
+		);
+		background-origin: border-box;
+		border: solid var(--_gradient-border-before-width) transparent;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		mask-image: conic-gradient(#000 0 0), conic-gradient(#000 0 0);
+		mask-clip: padding-box, border-box;
+		mask-composite: exclude;
+		-webkit-mask-composite: destination-out;
+		background-image: linear-gradient(
+			to var(--_gradient-border-after-direction),
+			var(--_gradient-border-after-color)
+		);
+		background-origin: border-box;
+		border: solid var(--_gradient-border-after-width) transparent;
+	}
+}
