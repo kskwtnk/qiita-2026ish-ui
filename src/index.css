@@ -26,23 +26,7 @@
 	position: relative;
 	isolation: isolate;
 
-	&::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		z-index: -1;
-		mask-image: conic-gradient(black), conic-gradient(black);
-		mask-clip: padding-box, border-box;
-		mask-composite: exclude;
-		-webkit-mask-composite: destination-out;
-		background-image: linear-gradient(
-			to var(--_gradient-border-before-direction),
-			var(--_gradient-border-before-color)
-		);
-		background-origin: border-box;
-		border: solid var(--_gradient-border-before-width) transparent;
-	}
-
+	&::before,
 	&::after {
 		content: "";
 		position: absolute;
@@ -52,11 +36,22 @@
 		mask-clip: padding-box, border-box;
 		mask-composite: exclude;
 		-webkit-mask-composite: destination-out;
+		background-origin: border-box;
+	}
+
+	&::before {
+		background-image: linear-gradient(
+			to var(--_gradient-border-before-direction),
+			var(--_gradient-border-before-color)
+		);
+		border: solid var(--_gradient-border-before-width) transparent;
+	}
+
+	&::after {
 		background-image: linear-gradient(
 			to var(--_gradient-border-after-direction),
 			var(--_gradient-border-after-color)
 		);
-		background-origin: border-box;
 		border: solid var(--_gradient-border-after-width) transparent;
 	}
 }
