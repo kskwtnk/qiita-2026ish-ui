@@ -31,7 +31,7 @@
 		position: absolute;
 		inset: 0;
 		z-index: -1;
-		mask-image: conic-gradient(#000 0 0), conic-gradient(#000 0 0);
+		mask-image: conic-gradient(black), conic-gradient(black);
 		mask-clip: padding-box, border-box;
 		mask-composite: exclude;
 		-webkit-mask-composite: destination-out;
@@ -48,7 +48,7 @@
 		position: absolute;
 		inset: 0;
 		z-index: -1;
-		mask-image: conic-gradient(#000 0 0), conic-gradient(#000 0 0);
+		mask-image: conic-gradient(black), conic-gradient(black);
 		mask-clip: padding-box, border-box;
 		mask-composite: exclude;
 		-webkit-mask-composite: destination-out;
